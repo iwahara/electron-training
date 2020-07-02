@@ -1,0 +1,8 @@
+{
+  "name": "electron-training",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": "git@github.com:iwahara/electron-training.git",
+  "author": "Masaki Iwahara <3982522+iwahara@users.noreply.github.com>",
+  "license": "MIT"
+}
