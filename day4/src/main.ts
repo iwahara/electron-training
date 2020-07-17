@@ -10,9 +10,12 @@ const createWindow = (): void => {
     width: 1200,
     height: 600,
     webPreferences: {
+      // レンダラープロセスで Node.js 使えないようにする (XSS対策)
       nodeIntegration: false,
       nodeIntegrationInWorker: false,
+      // preload で実行するときに、コンテキスト(this == window)を別なものとする
       contextIsolation: true,
+      preload: path.join(__dirname, './core/preLoad.js'), // preLoad.js にビジネスロジックを記述する
     },
   });
 
