@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { ITask } from '../states/ITask';
 
 export default interface ICore {

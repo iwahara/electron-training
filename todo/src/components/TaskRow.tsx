@@ -2,7 +2,7 @@ import moment from 'moment';
 // eslint-disable-next-line no-unused-vars
 import React, { useCallback, useMemo, MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteTaskAction, toggleCompleteAction } from '../actions/TaskActions';
+import { deleteTask, toggleTask } from '../actions/TaskActions';
 // eslint-disable-next-line no-unused-vars
 import { ITask } from '../states/ITask';
 import { styled } from './FoundationStyles';
@@ -96,13 +96,14 @@ const TaskRow: React.FC<{ data: ITask }> = props => {
     return moment(data.deadline).format('YYYY-MM-DD HH:mm');
   }, [data.deadline]);
   // 行をクリックしたときのイベント
+  // 行をクリックしたときのイベント
   const onRowClick = useCallback(() => {
-    dispatch(toggleCompleteAction(data.id));
-  }, [data.id]);
+    toggleTask(data, dispatch);
+  }, [data]);
   // 削除ボタンを押した時のイベント
   const onDeleteClick = useCallback(
     (e: MouseEvent<HTMLDivElement>) => {
-      dispatch(deleteTaskAction(data.id));
+      deleteTask(data.id, dispatch);
       // クリックイベントを親要素の伝播させない
       e.stopPropagation();
     },

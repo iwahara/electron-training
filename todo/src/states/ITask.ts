@@ -13,5 +13,10 @@ export interface ITask {
 }
 
 export interface ITaskList {
+  /** タスクのリスト */
   tasks: ITask[];
+  /** スピナーの表示 */
+  loading: boolean;
+  /** 失敗時のメッセージ */
+  failedMessage: string;
 }
