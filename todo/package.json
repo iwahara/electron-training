@@ -1,7 +1,7 @@
 {
   "name": "electron-training",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "./dist/main.js",
   "repository": "git@github.com:iwahara/electron-training.git",
   "author": "Masaki Iwahara <3982522+iwahara@users.noreply.github.com>",
   "license": "MIT",
@@ -63,14 +63,11 @@
     "build:main": "tsc",
     "build:render": "webpack",
     "test": "jest",
-    "package:mac": "webpack && electron-builder --mac --x64",
-    "package:windows": "webpack && electron-builder --win --x64",
-    "package:linux": "webpack && electron-builder --linux --x64"
+    "package:mac": "tsc && webpack && electron-builder --mac --x64",
+    "package:windows": "tsc && webpack && electron-builder --win --x64",
+    "package:linux": "tsc && webpack && electron-builder --linux --x64"
   },
   "build":{
-    "extraMetadata": {
-      "main": "./dist/main.js"
-    },
     "productName": "TODO",
     "appId": "todo.exsample.com",
     "directories": {
@@ -78,8 +75,8 @@
     },
     "files": [
       "./dist/**/*.js",
-      "./index.html",
-      "./main.js",
+      "./dist/index.html",
+      "./dist/main.js",
       "./icon/**/*"
     ],
     "dmg": {
