@@ -6,6 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css'; // --(a)
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { addTask } from '../actions/TaskActions';
+import { Button } from '@material-ui/core';
 
 // #region styled
 const Container = styled.div`
@@ -26,17 +27,6 @@ const TaskNameBox = styled.p`
 `;
 
 const DeadlineBox = styled.div``;
-
-const AddButton = styled.button`
-  background-color: ${(p): string => p.theme.SECONDARY_1_3};
-  border-radius: 50%;
-  color: white;
-  display: block;
-  font-size: 150%;
-  height: 40px;
-  padding: 0;
-  width: 40px;
-`;
 
 // #endregion
 const AddTask: React.FC = () => {
@@ -87,7 +77,9 @@ const AddTask: React.FC = () => {
           />
         </label>
       </DeadlineBox>
-      <AddButton onClick={onClickAddButton}>+</AddButton>
+      <Button variant="contained" onClick={onClickAddButton}>
+        +
+      </Button>
     </Container>
   );
 };

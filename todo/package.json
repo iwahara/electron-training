@@ -61,7 +61,7 @@
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
-    "start": "electron --debug ./dist/main.js",
+    "start": "tsc && webpack && electron --debug ./dist/main.js",
     "build:main": "tsc",
     "build:render": "webpack",
     "test": "jest",
