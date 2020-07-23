@@ -23,11 +23,10 @@ const createWindow = (): void => {
   // tsc でコンパイルするので、出力先の dist の相対パスで指定する。
   win.loadFile(path.join(__dirname, './index.html'));
 
-  if (process.argv.find((arg) => arg === '--debug')) {
+  if (process.argv.find(arg => arg === '--debug')) {
     // 開発者ツールを起動する
-    win.webContents.openDevTools()
+    win.webContents.openDevTools();
   }
-
 };
 
 // Electronの起動準備が終わったら、ウィンドウを作成する。
