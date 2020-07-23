@@ -65,6 +65,7 @@
     "build:main": "tsc",
     "build:render": "webpack",
     "test": "jest",
+    "lint:fix": "yarn run eslint --fix src/**/*.ts*",
     "package:mac": "tsc && webpack && electron-builder --mac --x64",
     "package:windows": "tsc && webpack && electron-builder --win --x64",
     "package:linux": "tsc && webpack && electron-builder --linux --x64"
