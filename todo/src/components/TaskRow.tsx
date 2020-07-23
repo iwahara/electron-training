@@ -6,6 +6,7 @@ import { deleteTask, toggleTask } from '../actions/TaskActions';
 // eslint-disable-next-line no-unused-vars
 import { ITask } from '../states/ITask';
 import { styled } from './FoundationStyles';
+import Checkbox from '@material-ui/core/Checkbox';
 
 // #region styled
 /*
@@ -29,28 +30,6 @@ const Task = styled.div<{ expiration: boolean }>`
     transform: translate(-5px, -5px);
     box-shadow: 5px 5px 5px rgba(200, 200, 200, 4);
   }
-`;
-/**
- * タスク完了のチェックアイコン表示 枠
- */
-const TaskCheckBox = styled.div`
-  align-items: center;
-  background-color: #fff;
-  border: 2px solid #ccc;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  flex-grow: 0;
-  flex-shrink: 0;
-  height: 2em;
-  width: 2em;
-`;
-/*
- * タスク完了チェックアイコン
- */
-const TaskCheck = styled.p`
-  color: ${(p): string => p.theme.SECONDARY_1_3};
-  font-size: 150%;
 `;
 /**
  * タスク名と期日の表示 枠
@@ -113,9 +92,11 @@ const TaskRow: React.FC<{ data: ITask }> = props => {
   // レンダリング
   return (
     <Task expiration={expiration} onClick={onRowClick}>
-      <TaskCheckBox>
-        <TaskCheck>{data.complete ? '✔' : null}</TaskCheck>
-      </TaskCheckBox>
+      <Checkbox
+        checked={data.complete}
+        inputProps={{ 'aria-label': 'primary checkbox' }}
+        size="medium"
+      />
       <TaskBody>
         <TaskName>{data.taskName}</TaskName>
         <Deadline>⏰{deadlineString}</Deadline>

@@ -6,6 +6,8 @@
   "author": "Masaki Iwahara <3982522+iwahara@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "css-loader": "^3.6.0",
     "eslint-loader": "^4.0.2",
     "fs-extra": "^9.0.1",
@@ -59,15 +61,16 @@
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
-    "start": "electron --debug ./dist/main.js",
+    "start": "tsc && webpack && electron --debug ./dist/main.js",
     "build:main": "tsc",
     "build:render": "webpack",
     "test": "jest",
+    "lint:fix": "yarn run eslint --fix src/**/*.ts*",
     "package:mac": "tsc && webpack && electron-builder --mac --x64",
     "package:windows": "tsc && webpack && electron-builder --win --x64",
     "package:linux": "tsc && webpack && electron-builder --linux --x64"
   },
-  "build":{
+  "build": {
     "productName": "TODO",
     "appId": "todo.exsample.com",
     "directories": {
