@@ -62,26 +62,8 @@ const TaskListContainer: React.FC = () => {
       <MainContainer>
         <AddTask />
         <TaskList>{taskListElement}</TaskList>
+        <Loading shown={taskList.loading} />
       </MainContainer>
-    </div>
-  );
-
-  // エラーメッセージ
-  const errorMessage = useMemo(() => {
-    if (!taskList.failedMessage) {
-      return null;
-    }
-    <p>{taskList.failedMessage}</p>;
-  }, [taskList.failedMessage]);
-  return (
-    <div>
-      <Header>TODO</Header>
-      <MainContainer>
-        <AddTask />
-        {errorMessage}
-        <TaskList>{taskListElement}</TaskList>
-      </MainContainer>
-      <Loading shown={taskList.loading} />
     </div>
   );
 };
